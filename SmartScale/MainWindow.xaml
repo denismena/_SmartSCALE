@@ -1,0 +1,48 @@
+﻿<Window x:Class="SmartScale.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartScale"
+        xmlns:cantVM ="clr-namespace:SmartSCALE.ViewModel"        
+        xmlns:nomenVM ="clr-namespace:SmartSCALE.ViewModel.Nomenclatoare"        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1000">
+
+    <Grid ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <!--Row 1-->
+        <StackPanel Grid.Column="3" Grid.Row="0">
+            <DockPanel>
+                <Label DockPanel.Dock="Left" Content="Username si companie (sucursala/punct de lucru)"/>
+                <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="Data si ora"/>
+            </DockPanel>
+        </StackPanel>
+
+        <!--Row 2-->
+        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Logo firma"/>
+        </StackPanel>
+
+        <!--Row 3-->
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+            <Button Content="Mod de lucru" Command="{Binding CreateNewDetailCommand}" CommandParameter="{x:Type cantVM:CantarireViewModel}"/>
+            <Button Content="Nomenclatore" Command="{Binding CreateNewDetailCommand}" CommandParameter="{x:Type nomenVM:NomenclatoareViewModel}"/>
+        </StackPanel>
+        <ContentControl Content="{Binding CurrentViewModel}"
+                    Grid.Column="3" Grid.Row="1" Grid.RowSpan="2"/>
+    </Grid>
+</Window>

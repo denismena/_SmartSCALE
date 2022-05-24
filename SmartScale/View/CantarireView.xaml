@@ -1,0 +1,196 @@
+﻿<UserControl x:Class="SmartSCALE.View.CantarireView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartSCALE.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid ShowGridLines="False" Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Coloana 1; Linia 1-->
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton GroupName="tipTicket" Content="Primire marfa" />
+                <RadioButton GroupName="tipTicket" Content="Livrare marfa" />
+            </StackPanel>
+
+            <StackPanel>
+                <StackPanel>
+                    <Label>Detalii cantarire</Label>
+                </StackPanel>
+                <StackPanel>
+                    <Grid Name="detaliiCant">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="5"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0">Prima cantarire</Label>
+                        <TextBox Grid.Column="1" Grid.Row="0" Width="100"></TextBox>
+                        <Label Grid.Column="2" Grid.Row="0">Data</Label>
+                        <!--<TextBox Grid.Column="3" Grid.Row="0" Width="100"></TextBox>-->
+                        <!--<Button Grid.Column="3" Grid.Row="0" ToolTip="Adauga data si ora curenta la prima cantarire" 
+                                Name="btnOraCur1" Click="btnOraCur1_Click"></Button>-->
+                        <Image Grid.Column="3" Grid.Row="0" ToolTip="Adauga data si ora curenta la prima cantarire" 
+                                Name="btnOraCur1"></Image>
+                        <!--<Image Source="/SmartSCALES;component/images/now.png" ></Image>-->
+                        <DatePicker Grid.Column="4" Grid.Row="0" Name="dp1"/>
+                        <Label Grid.Column="5" Grid.Row="0">Ora</Label>
+                        <TextBox Grid.Column="6" Grid.Row="0" Width="100" Name="txtOra1"></TextBox>
+
+                        <Label Grid.Column="0" Grid.Row="2">A doua cantarire</Label>
+                        <TextBox Grid.Column="1" Grid.Row="2" Width="100"></TextBox>
+                        <Label Grid.Column="2" Grid.Row="2">Data</Label>
+                        <!--<TextBox Grid.Column="3" Grid.Row="1" Width="100"></TextBox>-->
+                        <!--<Button Grid.Column="3" Grid.Row="2" Content="Ora curenta" ToolTip="Adauga data si ora curenta la a doua cantarire"
+                                Name="btnOraCur2" Click="btnOraCur2_Click"></Button>-->
+                        <Image Grid.Column="3" Grid.Row="2" ToolTip="Adauga data si ora curenta la a doua cantarire"
+                                Name="btnOraCur2"></Image>
+                        <DatePicker Grid.Column="4" Grid.Row="2" Name="dp2"/>
+                        <Label Grid.Column="5" Grid.Row="2">Ora</Label>
+                        <TextBox Grid.Column="6" Grid.Row="2" Width="100" Name="txtOra2"></TextBox>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <!--Coloana 3; Linia 1-->
+        <DockPanel Grid.Column="3" Grid.Row="1" LastChildFill="True">
+            <DockPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
+                <TextBlock ToolTip="Prima cantarire" Text="3500" DockPanel.Dock="Left" Foreground="PaleTurquoise"></TextBlock>
+                <TextBlock ToolTip="Diferenta dintre cantariri" Text="5500" Foreground="Green" DockPanel.Dock="Right" TextAlignment="Right"></TextBlock>
+                <!--<Label ToolTip="Diferenta dintre cantariri">5500</Label>-->
+            </DockPanel>
+            <StackPanel DockPanel.Dock="Bottom">
+                <Label ToolTip="Greutatea maxima admisa" HorizontalAlignment="Right">10500</Label>
+            </StackPanel>
+            <StackPanel>
+                <Label ToolTip="A doua cantarire" HorizontalAlignment="Center"
+                       FontSize="32" FontFamily="Graduate">9000</Label>
+            </StackPanel>
+            <!--<Label>Inregistrari cantar</Label>-->
+        </DockPanel>
+
+        <!--Coloana 1; Linia 2-->
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <!--Detalii material-->
+            <StackPanel>
+                <Label>Detalii material</Label>
+                <Grid Name="materialGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Tip material/produs</Label>
+                    <!--<TextBox  Grid.Column="1" Grid.Row="0" Name="txtProdus" HorizontalAlignment="Stretch"></TextBox>-->
+                    <ComboBox Height="25" x:Name="txtProdus" Grid.Column="1" Grid.Row="0" IsEditable="True"></ComboBox>
+                    <!--<Control:AutoCompleteComboBox Height="25" x:Name="txtProdus" Grid.Column="1" Grid.Row="0"></Control:AutoCompleteComboBox>-->
+                    <!--<Control:AutoCompleteComboBox Grid.Column="1" Grid.Row="0" x:Name="txtProdus" 
+                                                  HorizontalAlignment="Stretch" VerticalAlignment="Top"></Control:AutoCompleteComboBox>-->
+                </Grid>
+            </StackPanel>
+
+            <!--Detalii vehicul-->
+            <StackPanel>
+                <Label>Detalii vehicul</Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="5"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Right">Vehicul</Label>
+                    <TextBox  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Name="txtVehicul"></TextBox>
+                    <Label Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Right">Sofer</Label>
+                    <TextBox  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Name="txtSofer"></TextBox>
+                </Grid>
+            </StackPanel>
+
+            <!--Detalii transport-->
+            <StackPanel>
+                <Label>Detalii transport</Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="5"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Right">Furnizor</Label>
+                    <TextBox  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Name="txtFurnizor"></TextBox>
+                    <Label Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Right">Client</Label>
+                    <TextBox  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Name="txtClient"></TextBox>
+                </Grid>
+            </StackPanel>
+
+            <!--Detalii tranzactie-->
+            <StackPanel>
+                <Label>Detalii tranzactie</Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="5"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="5"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Right">Comanda/Contract</Label>
+                    <TextBox  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Name="txtContract"></TextBox>
+                    <Label Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Right">Observatii 1</Label>
+                    <TextBox  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Name="txtObservatii1"></TextBox>
+                    <Label Grid.Column="0" Grid.Row="4" HorizontalContentAlignment="Right">Observatii 2</Label>
+                    <TextBox  Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" Name="txtObservatii2"></TextBox>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+        <!--Coloana 3; Linia 2-->
+        <ListView Grid.Column="3" Grid.Row="2" Name="lvTickete">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ticket" Width="auto" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                    <GridViewColumn Header="Nr inmat" Width="auto" DisplayMemberBinding="{Binding NrInm}"></GridViewColumn>
+                    <GridViewColumn Header="Sofer" Width="auto" DisplayMemberBinding="{Binding Sofer}"></GridViewColumn>
+                    <GridViewColumn Header="Data" Width="auto" DisplayMemberBinding="{Binding DataTicket}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>
